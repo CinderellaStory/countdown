@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery版的网页倒计时效果</title>
+<style type="text/css">
+h1 {font-family:"微软雅黑"; font-size:40px; margin:20px 0; border-bottom:solid 1px #ccc; padding-bottom:20px; letter-spacing:2px; float: left; }
+h1 span{ color: #900000; }
+</style>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>下班倒计时：<span class="timespan"></span></h1>
+<!--倒计时模块-->
+<script>
+  var starttime = new Date("2017/12/1 18:00");
+  setInterval(function () {
+    var nowtime = new Date();
+    var time = starttime - nowtime;
+    var day = parseInt(time / 1000 / 60 / 60 / 24);
+    var hour = parseInt(time / 1000 / 60 / 60 % 24);
+    var minute = parseInt(time / 1000 / 60 % 60);
+    var seconds = parseInt(time / 1000 % 60);
+    $('.timespan').html(day + "天" + hour + "小时" + minute + "分钟" + seconds + "秒");
+  }, 1000);
+</script>
+</body>
+
+</html>
